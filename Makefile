@@ -18,6 +18,8 @@ SRC	= 	src/main.c	\
 		src/game.c	\
 		src/map.c	\
 		src/boat.c	\
+		src/utilities.c	\
+		src/attack.c	\
 	
 
 OBJ	=	$(SRC:.c=.o)

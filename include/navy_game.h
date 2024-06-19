@@ -32,7 +32,6 @@
     int check_buffer(char* buffer);
     int check_line(int i, char* buffer);
     int check_third_pos(char character, int i, int j);
-    int is_letter(char letter);
     /*signal.c*/
     void signal_1(int signum);
     void signal_2(int signum);
@@ -47,8 +46,17 @@
     void write_map(map_user_t* map, char* buffer);
     /*game.c*/
     void start_game(int pid, int enemypid, char* buffer, int player); 
+    void first_player_game(int pid, int enemypid, map_user_t* map, map_user_t* enemy_map);
+    void second_player_game(int pid, int enemypid, map_user_t* map, map_user_t* enemy_map);
+    void get_winner(map_user_t* map);
     /*boat.c*/
     void read_boat(map_user_t* map, char* buffer, int i);
     int get_colrow(char value, char current_value, int j);
     void draw_boat(map_user_t* map, int row_pos, int col_pos, int size, char orientation);
+    /*utilities.c*/
+    int is_number(char letter);
+    int is_letter(char letter);
+    /*attack.c*/
+    void check_attack(char* letter);
+    void attack_enemy(void);
 #endif /*NAVY_GAME_H_*/

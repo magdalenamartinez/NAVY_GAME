@@ -15,6 +15,7 @@ map_user_t* create_new_map(void)
     new_map->map = malloc(sizeof(char*) * 10);
     new_map->rows = 10;
     new_map->cols = 18;
+    new_map->sunken_ships = 14;
 
     while (i < new_map->rows) {
         new_map->map[i] = malloc(sizeof(char) * new_map->cols);
@@ -57,6 +58,7 @@ void print_map(map_user_t* map)
         }
         j = 0; i++;
     }
+    printf("\n");
 }
 
 void write_map(map_user_t* map, char* buffer)

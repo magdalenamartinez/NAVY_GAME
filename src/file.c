@@ -70,10 +70,4 @@ int check_third_pos(char character, int i, int j)
     return 0;
 }
 
-int is_letter(char letter) 
-{
-    if (letter > 64 && letter < 73) {
-        return 1;
-    }
-    return 0;
-}
+
