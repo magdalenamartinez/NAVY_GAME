@@ -11,3 +11,6 @@ Usage:
 ./navy [first_player_pid] navy_positions
 
 first_player_pid: only for the 2nd player. pid of the first player. navy_positions: file representing the positions of the ships
+
+
+<img width="359" alt="image" src="https://github.com/magdalenamartinez/NAVY_GAME/assets/146070152/1f3bd1e4-859a-4671-8726-d48edabb9d01">
