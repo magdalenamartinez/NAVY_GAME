@@ -29,3 +29,18 @@ void check_attack(char* letter)
         }
     }
 }
+
+void read_attack(map_user_t* map, int enemy) 
+{
+    int fp = open("file_attack.txt", O_RDONLY);
+    char buffer[4];
+    int n = read(fp, buffer, sizeof (buffer));
+    buffer[2] = '\0';
+    close(fp);
+    if (enemy == 1) {
+        read_impact(buffer, map);
+    } else {
+        shoot_map(map, buffer);
+    }
+}
+

@@ -33,10 +33,19 @@ void first_player_game(int pid, int enemypid, map_user_t* map, map_user_t* enemy
     signal(SIGUSR2, signal_2);
 
     while (map->sunken_ships > 0 && enemy_map->sunken_ships > 0) {
-        attack_enemy();
+        attack_enemy(); //ATACA ENEMIGO
         kill(enemypid, SIGUSR1);
         pause();
-        //Se queda esperando el ataque del enemigo
+        read_attack(enemy_map, 1); //LEE ATAQUE AL ENEMIGO
+        printf("Waiting for enemy attack...\n");
+        kill(enemypid, SIGUSR1);
+        pause();
+        read_attack(map, 0); //LEE EL ATAQUE DEL ENEMIGO
+        print_map(map);
+        print_map(enemy_map);
+        printf("sunken: %i\n",map->sunken_ships);
+        printf("sunken enemy: %i\n",enemy_map->sunken_ships);   
+        kill(enemypid, SIGUSR1);
     }
 
     get_winner(map);
@@ -48,7 +57,16 @@ void second_player_game(int pid, int enemypid, map_user_t* map, map_user_t* enem
     while (map->sunken_ships > 0 && enemy_map->sunken_ships > 0) {
         printf("Waiting for enemy attack...\n");
         pause();
-        //lee el ataque del enemigo;
+        read_attack(map, 0); //LEE EL ATAQUE DE ENEMIGO
+        kill(enemypid, SIGUSR2);
+        pause();
+        attack_enemy(); //ATACA ENEMIGO
+        kill(enemypid, SIGUSR2);
+        pause();
+        read_attack(enemy_map, 1); //LEE ATAQUE AL ENEMIGO
+        print_map(map);
+        print_map(enemy_map);   
+        kill(enemypid, SIGUSR2);
     }
     get_winner(map);
 }

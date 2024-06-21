@@ -59,4 +59,12 @@
     /*attack.c*/
     void check_attack(char* letter);
     void attack_enemy(void);
+    void read_attack(map_user_t* map, int enemy);
+    /*shoot.c*/
+    void shoot_map(map_user_t* map, char* buffer);
+    void write_impact(char impact);
+    void read_impact(char *buffer, map_user_t* enemy_map);
+    void shoot_enemy_map(map_user_t* map, char* buffer, char impact_pos);
+
+
 #endif /*NAVY_GAME_H_*/
