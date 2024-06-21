@@ -44,6 +44,7 @@
     void init_map(map_user_t* new_map);
     void print_map(map_user_t* map);
     void write_map(map_user_t* map, char* buffer);
+    void free_map(map_user_t* map);
     /*game.c*/
     void start_game(int pid, int enemypid, char* buffer, int player); 
     void first_player_game(int pid, int enemypid, map_user_t* map, map_user_t* enemy_map);

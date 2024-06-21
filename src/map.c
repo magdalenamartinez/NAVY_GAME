@@ -72,3 +72,12 @@ void write_map(map_user_t* map, char* buffer)
     }
 }
 
+void free_map(map_user_t* map) {
+    if (map == NULL) {
+        return;
+    }
+    free(map->map);
+    free(map);
+}
+
+

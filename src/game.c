@@ -26,8 +26,8 @@ void start_game(int pid, int enemypid, char* buffer, int player)
     } else {
         second_player_game(pid, enemypid, map, enemy_map);
     }
-    free(map);
-    free(enemy_map);
+    free_map(map);
+    free_map(enemy_map);
 }
 
 void first_player_game(int pid, int enemypid, map_user_t* map, map_user_t* enemy_map)
@@ -45,8 +45,6 @@ void first_player_game(int pid, int enemypid, map_user_t* map, map_user_t* enemy
         read_attack(map, 0); //LEE EL ATAQUE DEL ENEMIGO
         print_map(map);
         print_map(enemy_map);
-        printf("sunken: %i\n",map->sunken_ships);
-        printf("sunken enemy: %i\n",enemy_map->sunken_ships);   
         kill(enemypid, SIGUSR1);
     }
 
