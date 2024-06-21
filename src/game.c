@@ -26,6 +26,8 @@ void start_game(int pid, int enemypid, char* buffer, int player)
     } else {
         second_player_game(pid, enemypid, map, enemy_map);
     }
+    free(map);
+    free(enemy_map);
 }
 
 void first_player_game(int pid, int enemypid, map_user_t* map, map_user_t* enemy_map)
